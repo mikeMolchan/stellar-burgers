@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
 import '../../index.css';
@@ -21,11 +22,19 @@ import {
   NotFound404
 } from '@pages';
 
+import { useDispatch } from '../../services/store';
+import { fetchIngredients } from '../../services/slices';
+
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const background = location.state?.background;
+
+  useEffect(() => {
+    dispatch(fetchIngredients());
+  }, [dispatch]);
 
   const handleModalClose = () => {
     navigate(-1);
