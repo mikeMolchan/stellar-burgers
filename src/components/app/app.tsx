@@ -23,7 +23,7 @@ import {
 } from '@pages';
 
 import { useDispatch } from '../../services/store';
-import { fetchIngredients } from '../../services/slices';
+import { fetchIngredients, checkUserAuth } from '../../services/slices';
 
 const App = () => {
   const location = useLocation();
@@ -34,6 +34,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchIngredients());
+    dispatch(checkUserAuth());
   }, [dispatch]);
 
   const handleModalClose = () => {

@@ -31,11 +31,6 @@ const initialState: TUserState = {
   ordersLoading: false
 };
 
-/**
- * Проверка авторизации при загрузке приложения.
- * TODO (шаг 2): вызывать в App при старте приложения,
- * чтобы ProtectedRoute мог опираться на isAuthChecked.
- */
 export const checkUserAuth = createAsyncThunk(
   'user/checkUserAuth',
   async (_, { dispatch }) => {
