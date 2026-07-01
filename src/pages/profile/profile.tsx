@@ -31,9 +31,12 @@ export const Profile: FC = () => {
 
     const updateData: { name?: string; email?: string; password?: string } = {};
 
-    if (formValue.name !== user?.name) updateData.name = formValue.name;
-    if (formValue.email !== user?.email) updateData.email = formValue.email;
-    if (formValue.password) updateData.password = formValue.password;
+    if (formValue.name !== user?.name)
+      updateData.name = formValue.name;
+    if (formValue.email !== user?.email)
+      updateData.email = formValue.email;
+    if (formValue.password)
+      updateData.password = formValue.password;
 
     dispatch(updateUser(updateData)).then((action) => {
       if (updateUser.fulfilled.match(action)) {

@@ -53,7 +53,6 @@ const orderSlice = createSlice({
       })
       .addCase(createOrder.fulfilled, (state, action) => {
         state.orderRequest = false;
-        // API возвращает TNewOrder (без поля ingredients) вместо TOrder
         state.orderModalData = {
           ...action.payload.order,
           ingredients: []

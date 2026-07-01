@@ -24,7 +24,8 @@ export const BurgerConstructor: FC = () => {
   const user = useSelector(selectUser);
 
   const onOrderClick = () => {
-    if (!constructorItems.bun || orderRequest) return;
+    if (!constructorItems.bun || orderRequest)
+      return;
 
     if (!user) {
       navigate('/login');
@@ -52,10 +53,8 @@ export const BurgerConstructor: FC = () => {
     () =>
       (constructorItems.bun ? constructorItems.bun.price * 2 : 0) +
       constructorItems.ingredients.reduce(
-        (s: number, v: TConstructorIngredient) => s + v.price,
-        0
-      ),
-    [constructorItems]
+        (s: number, v: TConstructorIngredient) => s + v.price, 0),
+        [constructorItems]
   );
 
   return (
