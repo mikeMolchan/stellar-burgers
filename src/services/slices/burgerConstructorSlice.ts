@@ -35,8 +35,7 @@ const burgerConstructorSlice = createSlice({
     },
     moveIngredientUp: (state, action: PayloadAction<number>) => {
       const index = action.payload;
-      if (index <= 0)
-        return;
+      if (index <= 0) return;
       [state.ingredients[index - 1], state.ingredients[index]] = [
         state.ingredients[index],
         state.ingredients[index - 1]
@@ -44,8 +43,7 @@ const burgerConstructorSlice = createSlice({
     },
     moveIngredientDown: (state, action: PayloadAction<number>) => {
       const index = action.payload;
-      if (index >= state.ingredients.length - 1)
-        return;
+      if (index >= state.ingredients.length - 1) return;
       [state.ingredients[index], state.ingredients[index + 1]] = [
         state.ingredients[index + 1],
         state.ingredients[index]

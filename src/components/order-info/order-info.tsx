@@ -35,8 +35,7 @@ export const OrderInfo: FC = () => {
   }, [orderData, orderNumber, dispatch]);
 
   const orderInfo = useMemo(() => {
-    if (!orderData || !ingredients.length)
-      return null;
+    if (!orderData || !ingredients.length) return null;
 
     const date = new Date(orderData.createdAt);
 
@@ -60,7 +59,9 @@ export const OrderInfo: FC = () => {
     );
 
     const total = Object.values(ingredientsInfo).reduce(
-      (acc, item) => acc + item.price * item.count, 0);
+      (acc, item) => acc + item.price * item.count,
+      0
+    );
 
     return { ...orderData, ingredientsInfo, date, total };
   }, [orderData, ingredients]);

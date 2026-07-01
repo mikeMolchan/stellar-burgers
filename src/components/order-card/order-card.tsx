@@ -14,14 +14,12 @@ export const OrderCard: FC<OrderCardProps> = memo(({ order }) => {
   const ingredients = useSelector(selectIngredients);
 
   const orderInfo = useMemo(() => {
-    if (!ingredients.length)
-      return null;
+    if (!ingredients.length) return null;
 
     const ingredientsInfo = order.ingredients.reduce(
       (acc: TIngredient[], item: string) => {
         const ingredient = ingredients.find((ing) => ing._id === item);
-        if (ingredient)
-          return [...acc, ingredient];
+        if (ingredient) return [...acc, ingredient];
         return acc;
       },
       []
@@ -35,11 +33,17 @@ export const OrderCard: FC<OrderCardProps> = memo(({ order }) => {
         : 0;
 
     const date = new Date(order.createdAt);
-    return { ...order, ingredientsInfo, ingredientsToShow, remains, total, date };
+    return {
+      ...order,
+      ingredientsInfo,
+      ingredientsToShow,
+      remains,
+      total,
+      date
+    };
   }, [order, ingredients]);
 
-  if (!orderInfo)
-    return null;
+  if (!orderInfo) return null;
 
   return (
     <OrderCardUI
